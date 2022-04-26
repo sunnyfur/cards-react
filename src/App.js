@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import rates from './mock/rates.json';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {rates.results.map((rate) => {
+        return (
+          <Card
+            name={rate.name}
+            cost={rate.cost}
+            currency={rate.currency}
+            length={rate.length}
+            speed={rate.speed}
+            speedUnits={rate.speedUnits}
+            optional={rate.optional}
+          ></Card>
+        );
+      })}
     </div>
   );
 }
